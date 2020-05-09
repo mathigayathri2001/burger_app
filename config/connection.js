@@ -14,7 +14,6 @@ else {
     }
 }
 
-
 let connection = mysql.createConnection(defaultConfig)
 
 connection.promise()
