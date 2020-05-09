@@ -5,7 +5,7 @@ const orm = {
     selectAll: async function (tableName) {
       const sql = 'SELECT * FROM ??'
       const [rows] = await connection.query(sql, [tableName])
-      return rows
+      return rows;
     },
 
     insertOne:async function (tableName,colName,colValue) {
@@ -13,9 +13,9 @@ const orm = {
         const [rows] = await connection.query(sql, [tableName,colName,colValue])
         return rows
       },
-    updateOne:async function (tableName,colName,colValue,id) {
-        const sql = 'UPDATE ?? SET ?? = ?,WHERE ??=?'
-        const [rows] = await connection.query(sql, [tableName,colName,colValue,id])
+    updateOne:async function (tableName,colName1,colValue, colName2,id) {
+        const sql = 'UPDATE ?? SET ?? = ? WHERE ??=?'
+        const [rows] = await connection.query(sql, [tableName,colName1,colValue,colName2,id])
         return rows
       },
 }
