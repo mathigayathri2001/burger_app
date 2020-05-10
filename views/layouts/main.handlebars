@@ -1,24 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../public/assets/css/style.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="/assets/css/style.css" type="text/css" />
     <title>Burger App</title>
 </head>
-
 <body>
-
     <!--insert index.handlebars in the body tag -->
     {{{ body }}}
-
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-    {{!-- <script src="./js/burger.js"></script> --}}
 </body>
+</html>
+
+
+<script>
+
+    document.getElementById("form-div").addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        // Creating a new burger object with user input
+        const addBurger = {
+            burger_name: document.getElementById("burger-input").value.trim(),
+        };
+        // POST request to the server side and then reload the page when there is a response
+        fetch(`/api/burgers`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(addBurger),
+        }).then((response) => {
+            if (response.ok) location.reload();
+        });
+    });
+
+    document.querySelectorAll(".devourBTN").forEach((button) => {
+        button.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            // Setting Variables for data attributes
+            const id = this.getAttribute("data-id");
+            const devoured = this.getAttribute("data-devoured");
+            // Making a patch request to update the burger to become eaten
+            // Reload the page when there is a response
+            fetch(`/api/burgers/${id}`, {
+                method: "PATCH",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ devoured: devoured }),
+            }).then((response) => {
+                if (response.ok) location.reload();
+            });
+        });
+    });
+
+
+
+</script>
 
 </html>
