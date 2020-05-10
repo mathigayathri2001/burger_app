@@ -1,21 +1,114 @@
-<h1>ests!</h1>
 
-<h2>rady to eat!</h2>
+<main class="container">
+    <div class="row justify-content-center m-2">
+        <div class="col-3">
+            <img class="burgerPic" src="burgerimg.jpg" alt="Deconstructued Burger being held by chef">
+        </div>
+    </div>
 
-<ul>
-   <ul>
-  {{#each burgers}}
-   {{#unless devored}}
-  <li>
-    <p>Type: {{burger_name}}</p>
-  </li>
-  {{/unless}}
-  {{/each}}
-</ul>
+    <!-- burgers not eaten list-->
+    <div class="row mt-4 justify-content-center">
+        <div class="col-4 unEatenList m-2">
+            <H3>Burgers ready to eat</H3>
+            <ol>
+
+                <!-- For each burger which devoured is not true create a list item with the burger name and devour button-->
+                {{#each burgers}}
+                {{#unless devoured}}
+                <div class="row">
+                    <li class="col-7 burgerItem ">
+                        <p>{{burger_name}}</p>
+                    </li>
+                    {{!-- <div class=" col-3 devourBTN" data-id="{{id}}">
+                        <button> Devour </button>
+                    </div> --}}
+                    <div class=" col-3 button-div">
+                <button class="devourBTN" data-id="{{id}}" data-devoured="{{devoured}}">Devour</button>
+            </div>
 
 
 
+                </div>
+                {{/unless}}
+                {{/each}}
+            </ol>
+        </div>
 
+  
+
+        {{!-- <!-- burgers already eaten list-->
+        <div class="col-4 eatenList m-2">
+            <H3>Burgers already eaten</H3>
+            <ol>
+                <!-- For each burger which devoured is true create a list item with the burger name -->
+
+                {{#each Burgers}}
+                {{#if devoured}}
+                <div class="row">
+                    <li class="col-7 burgerItem ">
+                        {{!-- <p>{{burger_name}}</p> --}}
+                        <p class="burger-text">{{burger_name}}</p>
+                    </li>
+                </div>
+                {{/if}}
+                {{/each}}
+            </ol>
+        </div>
+    </div> --}}
+
+    <!-- input box-->
+    <div class="row justify-content-center" id="form-div">
+        {{!-- Form to submit a burger with an input and a button --}}
+        <form id="new-burger-form">
+            <input  id="burger-input" type="text" name="name"
+                placeholder="Create a burger">
+            <button class="burger-submit" id="new-burger-button" type="submit">Create</button>
+        </form>
+    </div>
+</main>
+
+
+
+<script>
+ 
+document.getElementById("form-div").addEventListener("submit", (event) => {
+    event.preventDefault();
+  alert('inside coming')
+    // Creating a new burger object with user input
+    const addBurger = {
+      burger_name: document.getElementById("burger-input").value.trim(),
+    };
+    // POST request to the server side and then reload the page when there is a response
+    fetch(`/api/burgers`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(addBurger),
+    }).then((response) => {
+      if (response.ok) location.reload();
+    });
+  });
+
+  /*document.querySelectorAll(".devourBTN").forEach((button) => {
+    button.addEventListener("click", function (event) {
+      event.preventDefault();
+      // Setting Variables for data attributes
+      const id = this.getAttribute("data-id");
+      const devoured = this.getAttribute("data-devoured");
+      // Making a patch request to update the burger to become eaten
+      // Reload the page when there is a response
+      fetch(`/api/burgers/${id}`, {
+        method: "Put",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ devoured: devoured }),
+      }).then((response) => {
+        if (response.ok) location.reload();
+      });
+    });
+  //});*/
+
+
+
+</script>
 
 
   

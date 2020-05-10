@@ -1,0 +1,21 @@
+.individualBurgerItem{
+    background-color: whitesmoke;
+}
+.burgerPic{
+max-width: 300px;
+max-height: 300px;
+}
+
+body{
+    background-color: #FED16D;
+}
+
+.burgerItem{
+background-color: whitesmoke;
+padding-left: 5px;
+margin: 4px;
+}
+#burgerTxt{
+    width: 300px
+    ;
+}

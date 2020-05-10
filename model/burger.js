@@ -21,7 +21,7 @@ class Burger {
   }
 
   async create() {
-    const result = await orm.insertOne(`burgers`, `burger_name`, `this.burger_name`, `this.devoured`)
+    const result = await orm.insertOne(`burgers`, `burger_name`, this.burger_name, this.devoured)
     this.id = result.insertId
     console.log(result)
     return this
