@@ -12,6 +12,17 @@ class Burger {
     return rows
 
   }
+  static async findById (id) {
+    const rows = await orm.selectId(`burgers`,`id`,parseInt(id)) 
+    let burger = null
+    if (rows.length) {
+      burger = new Burger(rows[0])
+      burger.id = id
+    }
+    return burger
+
+  }
+
   async save() {
     if (this.id) {
       return this.update()
@@ -27,21 +38,12 @@ class Burger {
     return this
   }
   async update() {
-    this.devoured = fixBool(this.devoured)
-    const result = await orm.updateOne(`burgers`, { burger_name: this.burger_name, devoured: this.devoured }, `id`, this.id
-    )
-
+    console.log('coming')
+    this.devoured=true 
+    const result = await orm.updateOne(`burgers`, `devoured`, true,  `id`,parseInt(this.id))
     return this
   }
 }
-function fixBool(prop) {
-  if (prop === 'false') prop = false
-  else if (prop === '0') prop = false
-  else if (prop === 0) prop = false
-  else if (prop === null) prop = false
-  else if (prop === undefined) prop = false
-  else prop = true
-  return prop
-}
+
 
 module.exports = Burger;

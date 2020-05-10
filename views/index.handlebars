@@ -36,17 +36,15 @@
 
   
 
-        {{!-- <!-- burgers already eaten list-->
+        <!-- burgers already eaten list-->
         <div class="col-4 eatenList m-2">
             <H3>Burgers already eaten</H3>
             <ol>
                 <!-- For each burger which devoured is true create a list item with the burger name -->
-
-                {{#each Burgers}}
+                {{#each burgers}}
                 {{#if devoured}}
                 <div class="row">
                     <li class="col-7 burgerItem ">
-                        {{!-- <p>{{burger_name}}</p> --}}
                         <p class="burger-text">{{burger_name}}</p>
                     </li>
                 </div>
@@ -54,7 +52,7 @@
                 {{/each}}
             </ol>
         </div>
-    </div> --}}
+    </div>
 
     <!-- input box-->
     <div class="row justify-content-center" id="form-div">
@@ -73,7 +71,7 @@
  
 document.getElementById("form-div").addEventListener("submit", (event) => {
     event.preventDefault();
-  alert('inside coming')
+  
     // Creating a new burger object with user input
     const addBurger = {
       burger_name: document.getElementById("burger-input").value.trim(),
@@ -88,23 +86,24 @@ document.getElementById("form-div").addEventListener("submit", (event) => {
     });
   });
 
-  /*document.querySelectorAll(".devourBTN").forEach((button) => {
+  document.querySelectorAll(".devourBTN").forEach((button) => {
     button.addEventListener("click", function (event) {
       event.preventDefault();
+     
       // Setting Variables for data attributes
       const id = this.getAttribute("data-id");
       const devoured = this.getAttribute("data-devoured");
       // Making a patch request to update the burger to become eaten
       // Reload the page when there is a response
       fetch(`/api/burgers/${id}`, {
-        method: "Put",
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ devoured: devoured }),
       }).then((response) => {
         if (response.ok) location.reload();
       });
     });
-  //});*/
+  });
 
 
 

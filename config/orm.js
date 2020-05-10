@@ -18,6 +18,13 @@ const orm = {
         const [rows] = await connection.query(sql, [tableName,colName1,colValue,colName2,id])
         return rows
       },
+
+      selectId: async function (tableName, colName, id) {
+        const sql = "SELECT * FROM ?? WHERE ?? = ?";   
+        const [rows] = await connection.query(sql, [tableName, colName, id]);
+         return rows;
+        },
+    
 }
 
 module.exports = orm;
