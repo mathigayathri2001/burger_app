@@ -1,23 +1,47 @@
 
-
-/* .individualBurgerItem{
-    background-color: whitesmoke;
-}
 .burgerPic{
-max-width: 300px;
-max-height: 300px;
-} */
+max-width: 400px;
+max-height: 400px;
+margin-right: 10px;
+} 
 
 body{
-    background-color: #FED16D;
+    background-color: rgb(236, 192, 97);
 }
+h1{
+    text-align: center;
+    background-color: rgb(241, 141, 82);
+    color: white;
+}
+h3{
+    color: whitesmoke;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; 
+    font-size: 50px;
+}
+.devourBTN {
+    background-color: rgb(169, 236, 169); 
+    font-weight:thick ;
+    
+}
+.button-div :hover{
+    background-color: rgb(27, 77, 5);
+    color: whitesmoke;
+    
+}
+hr{
+    border-bottom: solid;
+  border-width: thin;
+}
+.eatenburger{
+    text-align: center;
+    opacity: 0.45;
+  }
 
-/* .burgerItem{
-background-color: whitesmoke;
-padding-left: 5px;
-margin: 4px;
+.burger-text{
+    font-size: 20px;
+    font-weight: bold;
+    font-style: italic;
 }
-#burgerTxt{
-    width: 300px
-    ;
-} */
+.numbertxt{
+    font-weight: bold;
+}
