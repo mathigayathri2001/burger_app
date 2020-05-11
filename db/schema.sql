@@ -3,7 +3,7 @@ DROP DATABASE IF EXISTS burger_db;
 CREATE DATABASE burger_db;
 USE burger_db;
 
--- create the table 
+-- create the table burgers for the application
 CREATE TABLE burgers
 (
 	id INTEGER NOT NULL AUTO_INCREMENT,

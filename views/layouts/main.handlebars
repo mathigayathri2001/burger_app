@@ -1,3 +1,5 @@
+<!--main.handlebars for the user interface -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,6 +36,7 @@
         });
     });
 
+    // patch request for the served food
     document.querySelectorAll(".devourBTN").forEach((button) => {
         button.addEventListener("click", function (event) {
             event.preventDefault();

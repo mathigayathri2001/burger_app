@@ -1,3 +1,4 @@
+// This script files import express module and route the http request through the 
 const express = require("express");
 
 // Get access the class Burger file
@@ -6,12 +7,13 @@ const Burger = require("../model/burger");
 // Initialize a router variable
 const router = express.Router();
 
-
+// route the root into the main page
 router.get("/", async function (req, res) {
   const data = await Burger.findAll();
   res.render("index", { burgers: data });
 });
-// api route
+
+// route the get the /api/burgers request
 router.get('/api/burgers', async function (req, res) {
   try {
     const burger = await Burger.findAll()
@@ -21,6 +23,7 @@ router.get('/api/burgers', async function (req, res) {
   }
 })
 
+// route the post api/burgers request
 router.post('/api/burgers', async function (req, res) {
   try {
     const addBurger = new Burger(req.body)
@@ -31,7 +34,7 @@ router.post('/api/burgers', async function (req, res) {
   }
 })
 
-
+// route patch request and process the id parameter along with it
 router.patch('/api/burgers/:id', async (req, res) => {
   let burger = await Burger.findById(req.params.id)
   console.log(burger)
