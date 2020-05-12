@@ -42,13 +42,11 @@ class Burger {
   async create() {
     const result = await orm.insertOne(`burgers`, `burger_name`, this.burger_name, this.devoured)
     this.id = result.insertId
-    console.log(result)
     return this
   }
   
   // function to update the burger record after the server
   async update() {
-    console.log('coming')
     this.devoured=true 
     const result = await orm.updateOne(`burgers`, `devoured`, true,  `id`,parseInt(this.id))
     return this

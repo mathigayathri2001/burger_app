@@ -6,12 +6,15 @@ margin-right: 10px;
 } 
 
 body{
-    background-color: rgb(236, 192, 97);
+    /* background-color: rgb(139, 210, 243); */
+    background-image: url(../img/bg_img.jpg);
+    
 }
 h1{
     text-align: center;
-    background-color: rgb(241, 141, 82);
+    background-color: rgb(116, 106, 100);
     color: white;
+    padding: 10px;
 }
 h3{
     color: whitesmoke;
@@ -41,7 +44,9 @@ hr{
     font-size: 20px;
     font-weight: bold;
     font-style: italic;
+    color: whitesmoke;
 }
 .numbertxt{
     font-weight: bold;
+    color: whitesmoke;
 }
