@@ -39,7 +39,7 @@
   
   # Usage
 
- ![Employee Tracker](Assets/Employee_tracker.gif)
+ ![Burger_app](./public/assets/img/demo.gif)
  
 
   # Question
