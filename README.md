@@ -5,7 +5,7 @@
 
   # Project description:
 
-  This Burger CLI application use to make a burger to eat in a queue and remove it once it is eater. User can enter a new burger and this will be added in the left side under 'Burger to be eaten'. When the user clicks 'Devour it!' button it will be moved into the right side section under 'Burger already eaten'. This application uses Express, Express-Handlebars, MySQL2, HTML,Javascript, Node.js and deployed in Heroku.*
+  This full stack MVC Burger  application use to make a burger to eat in a queue and remove it once it is eaten. User can enter a new burger and this will be added in the left side under 'Burger to be eaten'. When the user clicks 'Devour it!' button it will be moved into the right side section under 'Burger already eaten'. This application uses Express, Express-Handlebars, MySQL2, HTML,Javascript, Node.js and deployed in Heroku.*
   
   # Table of Content
 
@@ -21,6 +21,9 @@
 
 
   ## UserStory
+  AS A user
+   I WANT to add the new burger in the burger eat list and remove it once it is eaten a 
+   SO THAT I can make sure I can able to add and remove from the burger to eat queue and move into burger eaten queue.
 
   
   
