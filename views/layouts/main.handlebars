@@ -47,7 +47,7 @@
             // Making a patch request to update the burger to become eaten
             // Reload the page when there is a response
             fetch(`/api/burgers/${id}`, {
-                method: "PATCH",
+                method: "PUT",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ devoured: devoured }),
             }).then((response) => {

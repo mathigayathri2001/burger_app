@@ -35,7 +35,7 @@ router.post('/api/burgers', async function (req, res) {
 })
 
 // route patch request and process the id parameter along with it
-router.patch('/api/burgers/:id', async (req, res) => {
+router.put('/api/burgers/:id', async (req, res) => {
   let burger = await Burger.findById(req.params.id)
   console.log(burger)
   if (!burger) return res.status(404).end()
